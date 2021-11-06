@@ -241,7 +241,7 @@ module('Integration | Component | bs-form', function (hooks) {
     assert.dom(`.${formFeedbackClass()}`).hasText('There is an error');
   });
 
-  test('it does not catch errors thrown by onSubmit action', async function (assert) {
+  skip('it does not catch errors thrown by onSubmit action', async function (assert) {
     let onErrorStub = sinon.stub();
     let expectedError = new Error();
 
