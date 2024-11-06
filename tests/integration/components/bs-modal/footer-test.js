@@ -18,7 +18,7 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
     assert.strictEqual(
       this.element.querySelector('.modal-footer button').getAttribute('type'),
       'button',
-      'Submit button is of type submit.'
+      'Submit button is of type button.'
     );
     assert.dom('.modal-footer button').hasText('close', 'Button title is correct.');
   });
@@ -31,7 +31,7 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
     assert.strictEqual(
       this.element.querySelector('.modal-footer button:first-child').getAttribute('type'),
       'button',
-      'Submit button is of type submit.'
+      'Close button is of type button.'
     );
     assert.dom('.modal-footer button:first-child').hasText('close', 'Close button title is correct.');
     assert.dom('.modal-footer button:last-child').hasClass('btn-primary', 'Submit button is a primary button.');
