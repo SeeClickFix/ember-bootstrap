@@ -16,11 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 16
+      - name: Setup yarn
+        run: npm install -g yarn
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Lint
@@ -35,11 +37,13 @@ jobs:
       - test
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 16
+      - name: Setup yarn
+        run: npm install -g yarn
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
         with:
@@ -100,11 +104,13 @@ jobs:
           - scenario: node-tests
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 16
+      - name: Setup yarn
+        run: npm install -g yarn
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Test
