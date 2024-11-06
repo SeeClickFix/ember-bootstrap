@@ -569,6 +569,7 @@ module('Integration | Component | bs-dropdown', function (hooks) {
     }
 
     module('in place', function (hooks) {
+      // eslint-disable-next-line qunit/no-hooks-from-ancestor-modules
       hooks.beforeEach(function () {
         this.renderInPlace = true;
       });
@@ -576,6 +577,7 @@ module('Integration | Component | bs-dropdown', function (hooks) {
     });
 
     module('in wormhole', function () {
+      // eslint-disable-next-line qunit/no-hooks-from-ancestor-modules
       hooks.beforeEach(function () {
         this.renderInPlace = false;
       });

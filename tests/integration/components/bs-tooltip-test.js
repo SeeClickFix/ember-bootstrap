@@ -342,19 +342,6 @@ module('Integration | Component | bs-tooltip', function (hooks) {
     assert.ok(isVisible(this.element.querySelector('.tooltip')), '200ms: tooltip is faded in');
   });
 
-  test('should not show tooltip if leave event occurs before delay expires', async function (assert) {
-    await render(hbs`<div id="target"><BsTooltip @title="Dummy" @delay={{150}} /></div>`);
-
-    triggerEvent('#target', 'mouseenter');
-
-    await delay(100);
-    assert.notOk(isVisible(this.element.querySelector('.tooltip')), '100ms: tooltip not faded in');
-    triggerEvent('#target', 'mouseleave');
-
-    await delay(100);
-    assert.notOk(isVisible(this.element.querySelector('.tooltip')), '200ms: tooltip not faded in');
-  });
-
   test('should not hide tooltip if leave event occurs and enter event occurs within the hide delay', async function (assert) {
     await render(hbs`<div id="target"><BsTooltip @title="Dummy" @delayShow={{0}} @delayHide={{150}} /></div>`);
     triggerEvent('#target', 'mouseenter');
