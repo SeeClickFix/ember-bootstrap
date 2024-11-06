@@ -104,6 +104,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             bootstrap: bootstrapVersion,
+            'ember-source': '~3.28.0',
           },
           ember: {
             edition: 'classic',
