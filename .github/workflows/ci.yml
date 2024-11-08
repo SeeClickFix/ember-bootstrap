@@ -93,13 +93,22 @@ jobs:
           - scenario: ember-lts-3.28
             browser: Firefox
             bootstrap: 5
-          - scenario: ember-lts-4.4
+          - scenario: ember-lts-4.8
             browser: Firefox
             bootstrap: 3
-          - scenario: ember-lts-4.4
+          - scenario: ember-lts-4.8
             browser: Firefox
             bootstrap: 4
-          - scenario: ember-lts-4.4
+          - scenario: ember-lts-4.8
+            browser: Firefox
+            bootstrap: 5
+          - scenario: ember-lts-5.8
+            browser: Firefox
+            bootstrap: 3
+          - scenario: ember-lts-5.8
+            browser: Firefox
+            bootstrap: 4
+          - scenario: ember-lts-5.8
             browser: Firefox
             bootstrap: 5
           - scenario: node-tests
