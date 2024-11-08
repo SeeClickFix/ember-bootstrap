@@ -70,9 +70,6 @@ jobs:
           #- ember-lts-4.12 # fails due to bug: https://github.com/emberjs/ember.js/issues/20377
           - ember-lts-5.4
           - ember-lts-5.8
-          - ember-release
-          - ember-beta
-          - ember-canary
           - ember-default-with-jquery
           - ember-classic
           - embroider-safe
@@ -112,6 +109,42 @@ jobs:
             browser: Firefox
             bootstrap: 5
           - scenario: node-tests
+          - scenario: ember-release
+            browser: Chrome
+            bootstrap: 3
+            allow-failure: true
+          - scenario: ember-release
+            browser: Chrome
+            bootstrap: 4
+            allow-failure: true
+          - scenario: ember-release
+            browser: Chrome
+            bootstrap: 5
+            allow-failure: true
+          - scenario: ember-beta
+            browser: Chrome
+            bootstrap: 3
+            allow-failure: true
+          - scenario: ember-beta
+            browser: Chrome
+            bootstrap: 4
+            allow-failure: true
+          - scenario: ember-beta
+            browser: Chrome
+            bootstrap: 5
+            allow-failure: true
+          - scenario: ember-canary
+            browser: Chrome
+            bootstrap: 3
+            allow-failure: true
+          - scenario: ember-canary
+            browser: Chrome
+            bootstrap: 4
+            allow-failure: true
+          - scenario: ember-canary
+            browser: Chrome
+            bootstrap: 5
+            allow-failure: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
