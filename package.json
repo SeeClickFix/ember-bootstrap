@@ -47,11 +47,12 @@
   },
   "resolutions": {
     "ember-cli-htmlbars/semver": "~7.0.0",
-    "ip-regex": "^2.1.0"
+    "ip-regex": "^2.1.0",
+    "ember-modifier": "^3.2.7"
   },
   "dependencies": {
-    "@ember/render-modifiers": "^2.0.0",
-    "@ember/string": "^3.0.1",
+    "@ember/render-modifiers": "^2.1.0",
+    "@ember/string": "^3.1.1",
     "@embroider/macros": "^1.8.3",
     "@embroider/util": "^1.10.0",
     "@glimmer/component": "^1.0.4",
@@ -70,12 +71,13 @@
     "ember-element-helper": "^0.7.1",
     "ember-focus-trap": "^1.0.0",
     "ember-in-element-polyfill": "^1.0.1",
+    "ember-modifier": "^3.2.7",
     "ember-named-blocks-polyfill": "^0.2.4",
     "ember-on-helper": "^0.1.0",
-    "ember-popper-modifier": "^1.0.1",
-    "ember-ref-bucket": "^3.1.0",
+    "ember-popper-modifier": "^3.0.0",
+    "ember-ref-bucket": "^4.1.0",
     "ember-render-helpers": "^0.2.0",
-    "ember-style-modifier": "^0.6.0",
+    "ember-style-modifier": "^0.7.0",
     "findup-sync": "^4.0.0",
     "fs-extra": "^9.1.0",
     "resolve": "^1.18.1",
@@ -151,7 +153,7 @@
     "webpack": "^5.56.1"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": ">= 16"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
