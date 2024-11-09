@@ -330,7 +330,7 @@ module('Integration | Component | bs-dropdown', function (hooks) {
 
     await click('a.dropdown-toggle');
     assert.ok(isVisible(this.element.querySelector('.dropdown-menu a')));
-    assert.ok(this.element.querySelector('.dropdown-menu').offsetParent !== null);
+    assert.notStrictEqual(this.element.querySelector('.dropdown-menu').offsetParent, null);
   });
 
   test('dropdown menu can be rendered in a wormhole', async function (assert) {
@@ -569,6 +569,7 @@ module('Integration | Component | bs-dropdown', function (hooks) {
     }
 
     module('in place', function (hooks) {
+      // eslint-disable-next-line qunit/no-hooks-from-ancestor-modules
       hooks.beforeEach(function () {
         this.renderInPlace = true;
       });
@@ -576,6 +577,7 @@ module('Integration | Component | bs-dropdown', function (hooks) {
     });
 
     module('in wormhole', function () {
+      // eslint-disable-next-line qunit/no-hooks-from-ancestor-modules
       hooks.beforeEach(function () {
         this.renderInPlace = false;
       });

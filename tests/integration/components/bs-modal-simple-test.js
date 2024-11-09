@@ -2,6 +2,7 @@ import { module, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, focus, render, settled, triggerKeyEvent, waitUntil } from '@ember/test-helpers';
 import {
+  delay,
   defaultButtonClass,
   test,
   testNotBS3,
@@ -385,6 +386,7 @@ module('Integration | Component | bs-modal-simple', function (hooks) {
 
     this.set('open', false);
     await settled();
+    await delay(0);
 
     assert.dom('[data-test-button]').isFocused();
   });
@@ -526,7 +528,7 @@ module('Integration | Component | bs-modal-simple', function (hooks) {
 
     this.set('renderComponent', false);
 
-    assert.ok(!document.body.classList.contains('modal-open'), 'body element does not have "modal-open" class.');
+    assert.notOk(document.body.classList.contains('modal-open'), 'body element does not have "modal-open" class.');
   });
 
   test('Resets scroll bar when component is removed from view', async function (assert) {
@@ -579,7 +581,7 @@ module('Integration | Component | bs-modal-simple', function (hooks) {
       hbs`<BsModalSimple @title="Simple Dialog" @fade={{false}} @open={{this.open}}>Hello world!</BsModalSimple>`
     );
     await click('.modal .modal-header .close');
-    assert.equal(this.open, true, 'DOes not change open property');
+    assert.true(this.open, 'DOes not change open property');
   });
 
   testNotBS3('modal can be centered vertically', async function (assert) {

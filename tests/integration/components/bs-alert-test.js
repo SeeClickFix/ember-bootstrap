@@ -150,13 +150,41 @@ module('Integration | Component | bs-alert', function (hooks) {
     assert.dom('.alert').hasClass('alert-success', 'alert has type class');
   });
 
+  test('alert can be made visible when setting visible=true after manually dismissing it', async function (assert) {
+    this.set('visible', true);
+
+    this.set('handleOnDismissed', () => {
+      this.set('visible', false);
+    });
+
+    await render(hbs`<BsAlert
+      @type='success'
+      @fade={{false}}
+      @visible={{this.visible}}
+      @onDismissed={{this.handleOnDismissed}}
+    >
+      Test
+    </BsAlert>`);
+
+    assert.dom('.alert').exists('alert has alert class');
+    assert.dom('button.close').exists({ count: 1 }, 'alert has close button');
+
+    await click('button.close');
+    assert.dom('.alert').doesNotExist('alert has no alert class');
+    assert.dom('*').hasText('', 'alert has no content');
+
+    this.set('visible', true);
+
+    assert.dom('.alert').exists('alert has alert class');
+  });
+
   test('dismissing alert does not change public visible property (DDAU)', async function (assert) {
     this.set('visible', true);
     await render(hbs`<BsAlert @type="success" @visible={{this.visible}} @fade={{false}}>Test</BsAlert>`);
 
     await click('button.close');
 
-    assert.equal(this.visible, true, 'Does not modify visible property');
+    assert.true(this.visible, 'Does not modify visible property');
   });
 
   test('it passes accessibility checks', async function (assert) {

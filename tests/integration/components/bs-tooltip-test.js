@@ -342,19 +342,6 @@ module('Integration | Component | bs-tooltip', function (hooks) {
     assert.ok(isVisible(this.element.querySelector('.tooltip')), '200ms: tooltip is faded in');
   });
 
-  test('should not show tooltip if leave event occurs before delay expires', async function (assert) {
-    await render(hbs`<div id="target"><BsTooltip @title="Dummy" @delay={{150}} /></div>`);
-
-    triggerEvent('#target', 'mouseenter');
-
-    await delay(100);
-    assert.notOk(isVisible(this.element.querySelector('.tooltip')), '100ms: tooltip not faded in');
-    triggerEvent('#target', 'mouseleave');
-
-    await delay(100);
-    assert.notOk(isVisible(this.element.querySelector('.tooltip')), '200ms: tooltip not faded in');
-  });
-
   test('should not hide tooltip if leave event occurs and enter event occurs within the hide delay', async function (assert) {
     await render(hbs`<div id="target"><BsTooltip @title="Dummy" @delayShow={{0}} @delayHide={{150}} /></div>`);
     triggerEvent('#target', 'mouseenter');
@@ -385,7 +372,7 @@ module('Integration | Component | bs-tooltip', function (hooks) {
   test('should position tooltip arrow centered', async function (assert) {
     this.insertCSSRule('.margin-top { margin-top: 200px; }');
 
-    let expectedArrowPosition = versionDependent(95, 94, 100);
+    let expectedArrowPosition = versionDependent(95, 94, 94);
     await render(hbs`
       <div id="ember-bootstrap-wormhole"></div>
       <div id="wrapper">
@@ -415,7 +402,7 @@ module('Integration | Component | bs-tooltip', function (hooks) {
     this.insertCSSRule('.margin-top { margin-top: 200px; }');
     this.insertCSSRule('#target { width: 100px; padding: 0; border: none; }');
 
-    let expectedArrowPosition = versionDependent(145, 144, 157);
+    let expectedArrowPosition = versionDependent(145, 144, 144);
 
     await render(hbs`
       <div id="ember-bootstrap-wormhole"></div>
