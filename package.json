@@ -76,7 +76,7 @@
     "ember-on-helper": "^0.1.0",
     "ember-popper-modifier": "^3.0.0",
     "ember-ref-bucket": "^4.1.0",
-    "ember-render-helpers": "^0.2.0",
+    "ember-render-helpers": "0.2.0",
     "ember-style-modifier": "^0.7.0",
     "findup-sync": "^4.0.0",
     "fs-extra": "^9.1.0",
