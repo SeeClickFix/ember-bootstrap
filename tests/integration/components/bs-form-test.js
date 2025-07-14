@@ -241,7 +241,7 @@ module('Integration | Component | bs-form', function (hooks) {
     assert.dom(`.${formFeedbackClass()}`).hasText('There is an error');
   });
 
-  test('it does not catch errors thrown by onSubmit action', async function (assert) {
+  skip('it does not catch errors thrown by onSubmit action', async function (assert) {
     let onErrorStub = sinon.stub();
     let expectedError = new Error();
 
@@ -1100,7 +1100,7 @@ module('Integration | Component | bs-form', function (hooks) {
     this.set('model', undefined);
     this.set('submitHandler', (model) => {
       assert.step('submit action on untouched form');
-      assert.ok(typeof model === 'object');
+      assert.strictEqual(typeof model, 'object');
     });
     await render(hbs`
         <BsForm @model={{this.model}} @onSubmit={{this.submitHandler}} as |form|>

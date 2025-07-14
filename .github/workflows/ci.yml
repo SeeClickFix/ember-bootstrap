@@ -109,42 +109,6 @@ jobs:
             browser: Firefox
             bootstrap: 5
           - scenario: node-tests
-          # - scenario: ember-release
-          #   browser: Chrome
-          #   bootstrap: 3
-          #   allow-failure: true
-          # - scenario: ember-release
-          #   browser: Chrome
-          #   bootstrap: 4
-          #   allow-failure: true
-          # - scenario: ember-release
-          #   browser: Chrome
-          #   bootstrap: 5
-          #   allow-failure: true
-          # - scenario: ember-beta
-          #   browser: Chrome
-          #   bootstrap: 3
-          #   allow-failure: true
-          # - scenario: ember-beta
-          #   browser: Chrome
-          #   bootstrap: 4
-          #   allow-failure: true
-          # - scenario: ember-beta
-          #   browser: Chrome
-          #   bootstrap: 5
-          #   allow-failure: true
-          # - scenario: ember-canary
-          #   browser: Chrome
-          #   bootstrap: 3
-          #   allow-failure: true
-          # - scenario: ember-canary
-          #   browser: Chrome
-          #   bootstrap: 4
-          #   allow-failure: true
-          # - scenario: ember-canary
-          #   browser: Chrome
-          #   bootstrap: 5
-          #   allow-failure: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

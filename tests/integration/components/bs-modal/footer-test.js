@@ -15,10 +15,10 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
     assert.dom('.modal-footer').exists({ count: 1 }, 'Modal footer exists.');
     assert.dom('.modal-footer button').exists({ count: 1 }, 'Modal has button.');
     assert.dom('.modal-footer button').hasClass('btn-primary', 'Button is a primary button.');
-    assert.ok(
+    assert.strictEqual(
       this.element.querySelector('.modal-footer button').getAttribute('type'),
       'button',
-      'Submit button is of type submit.'
+      'Submit button is of type button.'
     );
     assert.dom('.modal-footer button').hasText('close', 'Button title is correct.');
   });
@@ -28,14 +28,14 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
 
     assert.dom('.modal-footer button').exists({ count: 2 }, 'Modal footer has two button.');
     assert.dom('.modal-footer button:first-child').hasClass(defaultButtonClass(), 'Close button is a default button.');
-    assert.ok(
+    assert.strictEqual(
       this.element.querySelector('.modal-footer button:first-child').getAttribute('type'),
       'button',
-      'Submit button is of type submit.'
+      'Close button is of type button.'
     );
     assert.dom('.modal-footer button:first-child').hasText('close', 'Close button title is correct.');
     assert.dom('.modal-footer button:last-child').hasClass('btn-primary', 'Submit button is a primary button.');
-    assert.ok(
+    assert.strictEqual(
       this.element.querySelector('.modal-footer button:last-child').getAttribute('type'),
       'submit',
       'Submit button is of type submit.'
