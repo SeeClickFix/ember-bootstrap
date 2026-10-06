@@ -46,9 +46,9 @@
     "*.js": "eslint --cache --fix"
   },
   "resolutions": {
-    "ember-cli-htmlbars/semver": "~7.0.0",
     "ip-regex": "^2.1.0",
-    "ember-modifier": "^3.2.7"
+    "ember-modifier": "^3.2.7",
+    "lodash": "^4.18.1"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
