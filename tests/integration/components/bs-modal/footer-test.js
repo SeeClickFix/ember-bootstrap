@@ -1,6 +1,6 @@
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { test, defaultButtonClass } from '../../../helpers/bootstrap';
 import hbs from 'htmlbars-inline-precompile';
 import setupNoDeprecations from '../../../helpers/setup-no-deprecations';
@@ -41,6 +41,27 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
       'Submit button is of type submit.'
     );
     assert.dom('.modal-footer button:last-child').hasText('submit', 'Submit button title is correct.');
+  });
+
+  test('Clicking submit button calls onSubmit and prevents native form submission', async function (assert) {
+    let submitCount = 0;
+    this.set('submit', () => submitCount++);
+    let defaultPrevented;
+    let listener = (event) => {
+      defaultPrevented = event.defaultPrevented;
+      // never let the test runner page navigate, even if the footer fails to prevent it
+      event.preventDefault();
+    };
+    window.addEventListener('submit', listener);
+    try {
+      await render(hbs`<BsModal::Footer @closeTitle="close" @submitTitle="submit" @onSubmit={{this.submit}} />`);
+      await click('.modal-footer button:last-child');
+    } finally {
+      window.removeEventListener('submit', listener);
+    }
+
+    assert.strictEqual(submitCount, 1, 'onSubmit is called once.');
+    assert.true(defaultPrevented, 'Native form submission is prevented.');
   });
 
   test('Footer can have a custom submitButtonType', async function (assert) {

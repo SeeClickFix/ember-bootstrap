@@ -1,11 +1,11 @@
 {{#let (ensure-safe-component (bs-default @buttonComponent (component "bs-button"))) as |Button|}}
-  <form class="modal-footer" ...attributes {{on "submit" (bs-default @onSubmit (bs-noop))}}>
+  <form class="modal-footer" ...attributes {{on "submit" this.handleSubmit}}>
     {{#if (has-block)}}
       {{yield}}
     {{else}}
       {{#if @submitTitle}}
         <Button @onClick={{@onClose}}>{{bs-default @closeTitle "Ok"}}</Button>
-        <Button @type={{bs-default @submitButtonType "primary"}} @buttonType="submit" onSubmit={{@onSubmit}} disabled={{bs-default @submitDisabled false}}>{{@submitTitle}}</Button>
+        <Button @type={{bs-default @submitButtonType "primary"}} @buttonType="submit" disabled={{bs-default @submitDisabled false}}>{{@submitTitle}}</Button>
       {{else}}
         <Button @type="primary" @onClick={{@onClose}}>{{bs-default @closeTitle "Ok"}}</Button>
       {{/if}}
