@@ -64,5 +64,14 @@
  * @event onClose
  * @public
  */
-import templateOnly from '@ember/component/template-only';
-export default templateOnly();
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+
+export default class ModalFooter extends Component {
+  @action
+  handleSubmit(event) {
+    // the footer is a <form>, so prevent the browser's native submission (and the page reload that comes with it)
+    event.preventDefault();
+    this.args.onSubmit?.();
+  }
+}

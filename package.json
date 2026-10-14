@@ -1,6 +1,6 @@
 {
   "name": "ember-bootstrap",
-  "version": "4.10.1",
+  "version": "4.10.2",
   "description": "Bootstrap components for Ember.js",
   "keywords": [
     "ember-addon",
@@ -46,9 +46,12 @@
     "*.js": "eslint --cache --fix"
   },
   "resolutions": {
-    "ember-cli-htmlbars/semver": "~7.0.0",
     "ip-regex": "^2.1.0",
-    "ember-modifier": "^3.2.7"
+    "ember-modifier": "^3.2.7",
+    "lodash": "^4.18.1",
+    "testem": "~3.18.0",
+    "@embroider/addon-shim": "1.10.2",
+    "pkg-entry-points": "1.1.1"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
@@ -80,6 +83,9 @@
     "ember-style-modifier": "^0.7.0",
     "findup-sync": "^4.0.0",
     "fs-extra": "^9.1.0",
+    "handlebars": "^4.7.10",
+    "lodash": "^4.18.1",
+    "postcss": "^8.5.29",
     "resolve": "^1.18.1",
     "rsvp": "^4.0.1",
     "silent-error": "^1.0.1",
