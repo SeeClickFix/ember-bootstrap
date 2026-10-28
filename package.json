@@ -55,7 +55,12 @@
     "ember-a11y-testing/ember-auto-import": "^2.10.0",
     "**/ember-try-config/ember-source-channel-url": "^3.0.0",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4",
-    "browserslist": "^4.28.7"
+    "browserslist": "^4.28.7",
+    "tmp": "^0.2.7",
+    "brace-expansion": "^1.1.21",
+    "minimatch": "^3.1.5",
+    "picomatch": "^2.3.2",
+    "braces": "^3.0.3"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
