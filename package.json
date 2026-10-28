@@ -59,7 +59,8 @@
     "tmp": "^0.2.7",
     "brace-expansion": "^1.1.21",
     "minimatch": "^3.1.5",
-    "picomatch": "^2.3.2"
+    "picomatch": "^2.3.2",
+    "braces": "^3.0.3"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
