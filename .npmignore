@@ -40,8 +40,6 @@ testem.*
 /.idea
 /config/release.js
 /fastboot-tests
-yuidoc.json
-gulpfile.js
 .codeclimate.yml
 /node-tests
 /DEBUG

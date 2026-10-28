@@ -47,7 +47,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-* `gulp docs` (run in root directory)
+* `yarn docs:build` (in this directory or the root directory) builds the app, the YUIDoc API docs and the changelog into `build/`
 
 ## Further Reading / Useful Links
 
