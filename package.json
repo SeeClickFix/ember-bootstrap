@@ -50,7 +50,10 @@
     "lodash": "^4.18.1",
     "testem": "~3.18.0",
     "@embroider/addon-shim": "1.10.2",
-    "pkg-entry-points": "1.1.1"
+    "pkg-entry-points": "1.1.1",
+    "ember-qunit/ember-auto-import": "^2.10.0",
+    "ember-a11y-testing/ember-auto-import": "^2.10.0",
+    "**/ember-try-config/ember-source-channel-url": "^3.0.0"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
