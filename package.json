@@ -22,7 +22,6 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "changelog": "lerna-changelog",
     "docs:build": "gulp docs:build",
     "docs:serve": "gulp docs:serve",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
@@ -153,8 +152,6 @@
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
     "qunit-dom": "^1.6.0",
-    "release-it": "^14.6.2",
-    "release-it-lerna-changelog": "^3.1.0",
     "striptags": "^3.0.0",
     "webpack": "^5.56.1"
   },
@@ -163,15 +160,6 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "changelog": {
-    "labels": {
-      "breaking": ":boom: Breaking Change",
-      "enhancement": "Features",
-      "bug": "Bug Fixes",
-      "documentation": "Documentation",
-      "internal": "Internal"
-    }
   },
   "ember": {
     "edition": "octane"
@@ -182,20 +170,5 @@
       "ember": ">=2.3.0"
     },
     "demoURL": "https://www.ember-bootstrap.com"
-  },
-  "release-it": {
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
   }
 }
