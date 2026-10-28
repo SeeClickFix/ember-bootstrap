@@ -56,7 +56,8 @@
     "**/ember-try-config/ember-source-channel-url": "^3.0.0",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4",
     "browserslist": "^4.28.7",
-    "tmp": "^0.2.7"
+    "tmp": "^0.2.7",
+    "brace-expansion": "^1.1.21"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.1.0",
