@@ -52,7 +52,6 @@
     "lodash": "^4.18.1",
     "testem": "~3.18.0",
     "@embroider/addon-shim": "1.10.2",
-    "pkg-entry-points": "1.1.1",
     "ember-a11y-testing/ember-auto-import": "^2.10.0",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4",
     "browserslist": "^4.28.7",
@@ -169,7 +168,7 @@
     "ember-source": ">=4.8.0"
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">= 20"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
