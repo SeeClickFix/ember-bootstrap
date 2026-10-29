@@ -64,14 +64,10 @@ jobs:
         allow-failure:
           - false
         scenario:
-          - ember-lts-3.28
-          - ember-lts-4.4
           - ember-lts-4.8
           #- ember-lts-4.12 # fails due to bug: https://github.com/emberjs/ember.js/issues/20377
           - ember-lts-5.4
           - ember-lts-5.8
-          - ember-default-with-jquery
-          - ember-classic
           - embroider-safe
           - embroider-optimized
         bootstrap:
@@ -81,15 +77,6 @@ jobs:
         browser:
           - Chrome
         include:
-          - scenario: ember-lts-3.28
-            browser: Firefox
-            bootstrap: 3
-          - scenario: ember-lts-3.28
-            browser: Firefox
-            bootstrap: 4
-          - scenario: ember-lts-3.28
-            browser: Firefox
-            bootstrap: 5
           - scenario: ember-lts-4.8
             browser: Firefox
             bootstrap: 3
