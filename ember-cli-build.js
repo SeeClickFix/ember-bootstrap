@@ -2,6 +2,7 @@
 /* eslint-env node */
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const { maybeEmbroider } = require('@embroider/test-setup');
+const webpack = require('webpack');
 
 module.exports = function (defaults) {
   let trees = {};
@@ -60,6 +61,18 @@ module.exports = function (defaults) {
     packagerOptions: {
       webpackConfig: {
         devtool: false,
+        resolve: {
+          // sinon imports node's util, which webpack 5 no longer polyfills
+          fallback: {
+            util: require.resolve('util/'),
+          },
+        },
+        plugins: [
+          // util reads process.env.NODE_DEBUG when it loads, and there's no process in the browser
+          new webpack.DefinePlugin({
+            'process.env.NODE_DEBUG': false,
+          }),
+        ],
       },
     },
   });
