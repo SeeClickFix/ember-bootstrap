@@ -100,6 +100,36 @@ module('Integration | Component | bs-collapse', function (hooks) {
     assert.dom('.collapse').hasAttribute('style', '');
   });
 
+  test('expanding measures the scroll height of the content', async function (assert) {
+    this.set('collapsed', true);
+    await render(
+      hbs`<BsCollapse @transitionDuration={{200}} @collapsed={{this.collapsed}}><div id="content"></div></BsCollapse>`
+    );
+    this.element.querySelector('#content').style.height = '50px';
+    this.set('collapsed', false);
+
+    await waitFor('.collapsing[style*=height]');
+    await delay(100);
+
+    assert.dom('.collapsing').hasAttribute('style', 'height: 50px;');
+  });
+
+  test('expanding with @collapseDimension="width" measures the scroll width of the content', async function (assert) {
+    this.set('collapsed', true);
+    await render(
+      hbs`<BsCollapse @collapseDimension="width" @transitionDuration={{200}} @collapsed={{this.collapsed}}><div id="content"></div></BsCollapse>`
+    );
+    let content = this.element.querySelector('#content');
+    content.style.width = '300px';
+    content.style.height = '10px';
+    this.set('collapsed', false);
+
+    await waitFor('.collapsing[style*=width]');
+    await delay(100);
+
+    assert.dom('.collapsing').hasAttribute('style', 'width: 300px;');
+  });
+
   test('it passes accessibility checks', async function (assert) {
     await render(hbs`<button type="button">Test</button><BsCollapse><p>Just some content</p></BsCollapse>`);
 
