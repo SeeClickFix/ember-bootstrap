@@ -36,10 +36,6 @@ import arg from 'ember-bootstrap/utils/decorators/arg';
   The header is rendered using a `<h4>` element by default. You can customize
   that one by setting `@headerTag` argument of `<BsAlert>`.
 
-  Using named block syntax as shown above may require to install
-  [ember-named-blocks-polyfill](https://github.com/ember-polyfills/ember-named-blocks-polyfill)
-  in your project depending on the Ember version used.
-
   *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
 
   @class Alert
