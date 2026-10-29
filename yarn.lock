@@ -1044,7 +1044,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/addon-shim@1.10.2", "@embroider/addon-shim@1.8.3", "@embroider/addon-shim@^1.0.0", "@embroider/addon-shim@^1.8.7":
+"@embroider/addon-shim@1.10.2", "@embroider/addon-shim@^1.0.0", "@embroider/addon-shim@^1.8.3", "@embroider/addon-shim@^1.8.7":
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/@embroider/addon-shim/-/addon-shim-1.10.2.tgz#5164c65de0fd242422594c2f94b3c5eab4ab8e36"
   integrity sha512-EfI9cJ5/3QSUJtwm7x1MXrx3TEa2p7RNgSHefy7fvGm8/DP1xUFL25nST1NaHbHcqR1UhMlrTtv5iUIDoVzeQQ==
@@ -1172,7 +1172,7 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^1.13.3", "@embroider/util@^1.9.0":
+"@embroider/util@^1.13.3", "@embroider/util@^1.9.0":
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.13.3.tgz#ac6a12f54097173167a9a1189a49ea6cd5b45755"
   integrity sha512-fb9S137zZqSI1IeWpGKVJ+WZHsRiIrD9D2A4aVwVH0dZeBKDg6lMaMN2MiXJ/ldUAG3DUFxnClnpiG5m2g3JFA==
@@ -5100,13 +5100,12 @@ ember-destroyable-polyfill@^2.0.1, ember-destroyable-polyfill@^2.0.2, ember-dest
     ember-cli-version-checker "^5.1.1"
     ember-compatibility-helpers "^1.2.1"
 
-ember-element-helper@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/ember-element-helper/-/ember-element-helper-0.7.1.tgz#dcbfc6a07ed9d7c9e071df84845ba7b3de8892e8"
-  integrity sha512-vpD/ZVXU3MCbW/oKw/Wg2z3H/KHYIiO9ej28By1POnN+HVw4sHHJVStxgVoztiK1P43JoGRpyoJvMB986xrGSw==
+ember-element-helper@^0.8.7:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/ember-element-helper/-/ember-element-helper-0.8.8.tgz#b7cb5a6450ec00ae6bc4974a5f6d7224aced8f35"
+  integrity sha512-3slTltQV5ke53t3YVP2GYoswsQ6y+lhuVzKmt09tbEx91DapG8I/xa8W5OA0StvcQlavL3/vHrz/vCQEFs8bBA==
   dependencies:
-    "@embroider/addon-shim" "1.8.3"
-    "@embroider/util" "^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0"
+    "@embroider/addon-shim" "^1.8.3"
 
 ember-focus-trap@^1.0.0:
   version "1.1.1"
