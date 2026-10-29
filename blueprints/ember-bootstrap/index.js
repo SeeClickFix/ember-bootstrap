@@ -93,7 +93,8 @@ module.exports = {
     let bootstrapVersion = this.bootstrapVersion;
     let preprocessor = this.preprocessor;
     let dependencies = this.project.dependencies();
-    let bowerDependencies = this.project.bowerDependencies();
+    // ember-cli 5 removed bower support, including project.bowerDependencies()
+    let bowerDependencies = this.project.bowerDependencies ? this.project.bowerDependencies() : {};
     let promises = [];
 
     if ('bootstrap' in bowerDependencies) {
