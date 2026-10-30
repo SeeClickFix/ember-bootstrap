@@ -65,13 +65,14 @@
     "markdown-it": "^14.3.3",
     "lodash.template": "^4.18.1",
     "ansi-html": "0.0.9",
-    "mocha/js-yaml": "^4.3.2"
+    "mocha/js-yaml": "^4.3.2",
+    "@embroider/macros": "~1.20.7"
   },
   "dependencies": {
     "@babel/core": "^7.29.0",
     "@ember/render-modifiers": "^2.1.0",
-    "@embroider/macros": "^1.8.3",
-    "@embroider/util": "^1.13.3",
+    "@embroider/macros": ">=1.19.7 <1.21.0",
+    "@embroider/util": "Gaurav0/embroider-util#v1.13.5-scf.1",
     "broccoli-debug": "^0.6.3",
     "broccoli-funnel": "^3.0.6",
     "broccoli-merge-trees": "^4.2.0",

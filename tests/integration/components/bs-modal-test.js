@@ -1,4 +1,5 @@
-import Component from '@ember/component';
+import Component, { setComponentTemplate } from '@ember/component';
+import GlimmerComponent from '@glimmer/component';
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, find, triggerEvent, settled, waitFor, waitUntil } from '@ember/test-helpers';
@@ -104,6 +105,70 @@ module('Integration | Component | bs-modal', function (hooks) {
 
     await click('#submit');
     assert.ok(submitAction.calledOnce, 'submit action has been called.');
+  });
+
+  module('custom components', function (hooks) {
+    hooks.beforeEach(function () {
+      this.CustomHeader = setComponentTemplate(
+        hbs`<div class="modal-header custom-header"><button type="button" class="custom-close" {{on "click" @onClose}}>Close</button></div>`,
+        class extends GlimmerComponent {}
+      );
+      this.CustomBody = setComponentTemplate(
+        hbs`<div class="modal-body custom-body">{{yield}}</div>`,
+        class extends GlimmerComponent {}
+      );
+      this.hide = sinon.spy();
+    });
+
+    test('it renders a curried @headerComponent and passes onClose', async function (assert) {
+      this.owner.register('component:test-component', this.CustomHeader);
+
+      await render(hbs`
+        <BsModal @headerComponent={{component "test-component"}} @onHide={{this.hide}} as |modal|>
+          <modal.header />
+          <modal.body>Hello world!</modal.body>
+        </BsModal>
+      `);
+
+      assert.dom('.modal .custom-header').exists({ count: 1 }, 'custom header is rendered');
+      await click('.modal .custom-close');
+      assert.ok(this.hide.calledOnce, 'onHide has been called');
+    });
+
+    test('it renders a component class passed as @headerComponent and passes onClose', async function (assert) {
+      await render(hbs`
+        <BsModal @headerComponent={{this.CustomHeader}} @onHide={{this.hide}} as |modal|>
+          <modal.header />
+          <modal.body>Hello world!</modal.body>
+        </BsModal>
+      `);
+
+      assert.dom('.modal .custom-header').exists({ count: 1 }, 'custom header is rendered');
+      await click('.modal .custom-close');
+      assert.ok(this.hide.calledOnce, 'onHide has been called');
+    });
+
+    test('it renders a curried @bodyComponent', async function (assert) {
+      this.owner.register('component:test-component', this.CustomBody);
+
+      await render(hbs`
+        <BsModal @bodyComponent={{component "test-component"}} as |modal|>
+          <modal.body>Hello world!</modal.body>
+        </BsModal>
+      `);
+
+      assert.dom('.modal .custom-body').hasText('Hello world!', 'custom body is rendered');
+    });
+
+    test('it renders a component class passed as @bodyComponent', async function (assert) {
+      await render(hbs`
+        <BsModal @bodyComponent={{this.CustomBody}} as |modal|>
+          <modal.body>Hello world!</modal.body>
+        </BsModal>
+      `);
+
+      assert.dom('.modal .custom-body').hasText('Hello world!', 'custom body is rendered');
+    });
   });
 
   test('Modal has accesibility attributes with custom title', async function (assert) {
