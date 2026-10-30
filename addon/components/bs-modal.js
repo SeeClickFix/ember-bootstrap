@@ -314,13 +314,6 @@ export default class Modal extends Component {
   @ref('backdropElement') backdropElement;
 
   /**
-   * @type boolean
-   * @readonly
-   * @private
-   */
-  isFastBoot = isFastBoot(this);
-
-  /**
    * The action to be sent when the modal footer's submit button (if present) is pressed.
    * Note that if your modal body contains a form (e.g. [Components.Form](Components.Form.html)) this action will
    * not be triggered. Instead a submit event will be triggered on the form itself. See the class description for an

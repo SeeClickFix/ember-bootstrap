@@ -31,9 +31,9 @@
       )
     }}
     {{#if this.isOpen}}
-      {{on-document "keydown" this.handleKeyEvent}}
-      {{on-document "click" this.closeHandler capture=true}}
-      {{on-document "keyup" this.closeHandler}}
+      {{bs-on-document "keydown" this.handleKeyEvent}}
+      {{bs-on-document "click" this.closeHandler capture=true}}
+      {{bs-on-document "keyup" this.closeHandler}}
     {{/if}}
 
   </Tag>

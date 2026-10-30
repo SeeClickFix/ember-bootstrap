@@ -5101,13 +5101,6 @@ ember-modifier@^3.0.0, "ember-modifier@^3.2.0 || ^4.0.0", ember-modifier@^3.2.7:
     ember-cli-typescript "^5.0.0"
     ember-compatibility-helpers "^1.2.5"
 
-ember-on-helper@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ember-on-helper/-/ember-on-helper-0.1.0.tgz#c8b1fef9173fc8546c4933b57ecd7ffbcebad99e"
-  integrity sha512-jjafBnWfoA4VSSje476ft5G+urlvvuSDddwAJjKDCjKY9mbe3hAEsJiMBAaPObJRMm1FOglCuKjQZfwDDls6MQ==
-  dependencies:
-    ember-cli-babel "^7.7.3"
-
 ember-page-title@^8.0.0:
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/ember-page-title/-/ember-page-title-8.2.4.tgz#f046c5d276e55e83e756cc948fede5998209f50d"

@@ -260,6 +260,24 @@ module('Integration | Component | bs-dropdown', function (hooks) {
     assert.ok(action.calledOnce);
   });
 
+  test('closed dropdown does not listen to document events anymore', async function (assert) {
+    let action = sinon.spy();
+    this.actions.hide = action;
+    await render(
+      hbs`<BsDropdown @onHide={{action "hide"}} as |dd|><dd.toggle>Dropdown <span class="caret"></span></dd.toggle><dd.menu><li><a href="#">Something</a></li></dd.menu></BsDropdown>`
+    );
+
+    await click('a.dropdown-toggle');
+    await click('*');
+    assert.dom('.dropdown-menu').doesNotExist('Dropdown is closed');
+    assert.ok(action.calledOnce, 'onHide was called on close');
+
+    await click('*');
+    await triggerKeyEvent(document, 'keydown', 27); // escape
+    await triggerKeyEvent(document, 'keyup', 9); // tab
+    assert.ok(action.calledOnce, 'onHide was not called again');
+  });
+
   test('dropdown yields the openDropdown action', async function (assert) {
     let action = sinon.spy();
     this.actions.show = action;

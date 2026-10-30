@@ -18,6 +18,10 @@ module('Integration | Component | bs-modal', function (hooks) {
     this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
   });
 
+  hooks.afterEach(function () {
+    sinon.restore();
+  });
+
   test('Modal yields header, footer and body components', async function (assert) {
     await render(hbs`
       <BsModal as |modal|>
@@ -269,6 +273,26 @@ module('Integration | Component | bs-modal', function (hooks) {
 
     assert.dom('.modal-backdrop').exists({ count: 1 }, 'Modal has backdrop element');
     assert.dom('.modal-backdrop').hasClass(visibilityClass(), 'Modal backdrop has visibility class');
+  });
+
+  test('it adjusts the dialog padding when the window is resized', async function (assert) {
+    // make the body not overflow, so an overflowing modal gets a left padding
+    sinon.stub(document.body, 'clientWidth').get(() => window.innerWidth);
+    this.set('tall', false);
+    await render(hbs`
+      <BsModal @fade={{false}}>
+        {{#if this.tall}}<svg width="1" height="5000"></svg>{{/if}}
+      </BsModal>
+    `);
+
+    assert.strictEqual(find('.modal').style.paddingLeft, '', 'no padding while the modal fits');
+
+    this.set('tall', true);
+    await settled();
+    assert.strictEqual(find('.modal').style.paddingLeft, '', 'padding is not adjusted before a resize');
+
+    await triggerEvent(window, 'resize');
+    assert.notStrictEqual(find('.modal').style.paddingLeft, '', 'padding is adjusted on resize');
   });
 
   test('it can reopen after closing by clicking the backdrop', async function (assert) {
