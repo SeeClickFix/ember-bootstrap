@@ -1044,7 +1044,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/addon-shim@1.10.2", "@embroider/addon-shim@^1.0.0", "@embroider/addon-shim@^1.8.3", "@embroider/addon-shim@^1.8.7":
+"@embroider/addon-shim@1.10.2", "@embroider/addon-shim@^1.0.0", "@embroider/addon-shim@^1.10.0", "@embroider/addon-shim@^1.8.3", "@embroider/addon-shim@^1.8.7":
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/@embroider/addon-shim/-/addon-shim-1.10.2.tgz#5164c65de0fd242422594c2f94b3c5eab4ab8e36"
   integrity sha512-EfI9cJ5/3QSUJtwm7x1MXrx3TEa2p7RNgSHefy7fvGm8/DP1xUFL25nST1NaHbHcqR1UhMlrTtv5iUIDoVzeQQ==
@@ -4087,6 +4087,11 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
+csstype@^3.1.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.2.3.tgz#ec48c0f3e993e50648c86da559e2610995cf989a"
+  integrity sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==
+
 dag-map@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/dag-map/-/dag-map-2.0.2.tgz#9714b472de82a1843de2fba9b6876938cab44c68"
@@ -4221,6 +4226,13 @@ decompress-response@^3.3.0:
   integrity sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==
   dependencies:
     mimic-response "^1.0.0"
+
+decorator-transforms@^2.3.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/decorator-transforms/-/decorator-transforms-2.4.0.tgz#154f08d81b4e1261582ce005c6c5c52c2e86587c"
+  integrity sha512-IB+0RqnJpuS7ndH4dVY5dfWTZsrCzN3avWFdjSiET0uT2U24jKywjpVEK97TflnZkZgiSRfmeqc1WfS+1CI23w==
+  dependencies:
+    babel-import-util "^3.0.0"
 
 deep-eql@^0.1.3:
   version "0.1.3"
@@ -5090,7 +5102,7 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-ember-modifier@^3.0.0, "ember-modifier@^3.2.0 || ^4.0.0", ember-modifier@^3.2.7:
+"ember-modifier@^3.2.0 || ^4.0.0", ember-modifier@^3.2.7, "ember-modifier@^3.2.7 || ^4.0.0":
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
   integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
@@ -5222,13 +5234,15 @@ ember-source@~4.8.0:
     semver "^7.3.7"
     silent-error "^1.1.1"
 
-ember-style-modifier@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/ember-style-modifier/-/ember-style-modifier-0.7.0.tgz#85b3dfd7e4bc2bd546df595f2dab4fb141cf7d87"
-  integrity sha512-iDzffiwJcb9j6gu3g8CxzZOTvRZ0BmLMEFl+uyqjiaj72VVND9+HbLyQRw1/ewPAtinhSktxxTTdwU/JO+stLw==
+ember-style-modifier@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/ember-style-modifier/-/ember-style-modifier-4.6.0.tgz#4291f5c23ff4fba8cfc7f2fab978244a9127282c"
+  integrity sha512-ZM1pztpyEdZDfQEgOkWREiiUrsfnYGJGJzEw5QO60Sd2GAZIXLhCHxOTaT3ox5pUGb+ldG4I9Fk3srQreMJlQw==
   dependencies:
-    ember-cli-babel "^7.26.6"
-    ember-modifier "^3.0.0"
+    "@embroider/addon-shim" "^1.10.0"
+    csstype "^3.1.3"
+    decorator-transforms "^2.3.0"
+    ember-modifier "^3.2.7 || ^4.0.0"
 
 ember-template-imports@^3.4.2:
   version "3.4.2"

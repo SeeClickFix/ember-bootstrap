@@ -88,7 +88,7 @@
     "ember-focus-trap": "^1.0.0",
     "ember-popper-modifier": "^3.0.0",
     "ember-render-helpers": "0.2.0",
-    "ember-style-modifier": "^0.7.0",
+    "ember-style-modifier": "^4.6.0",
     "findup-sync": "^4.0.0",
     "fs-extra": "^9.1.0",
     "handlebars": "^4.7.10",
