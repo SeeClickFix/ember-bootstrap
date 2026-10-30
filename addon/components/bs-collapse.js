@@ -4,7 +4,7 @@ import { isNone } from '@ember/utils';
 import { next } from '@ember/runloop';
 import transitionEnd from 'ember-bootstrap/utils/transition-end';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 import arg from '../utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
 
@@ -36,7 +36,9 @@ export default class Collapse extends Component {
    * @type null | HTMLElement
    * @private
    */
-  @ref('mainNode') _element = null;
+  _element = null;
+
+  trackMainNode = trackElement(this, '_element');
 
   /**
    * Collapsed/expanded state

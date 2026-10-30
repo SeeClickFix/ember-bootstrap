@@ -8,7 +8,7 @@
         {{popper-tooltip this.toggleElement this.popperOptions}}
         {{did-insert @registerChildElement "menu"}}
         {{will-destroy @unregisterChildElement "menu"}}
-        {{create-ref "menuElement"}}
+        {{this.trackMenuElement}}
       >
         {{yield
           (hash
@@ -28,7 +28,7 @@
           {{popper-tooltip this.toggleElement this.popperOptions}}
           {{did-insert @registerChildElement "menu"}}
           {{will-destroy @unregisterChildElement "menu"}}
-          {{create-ref "menuElement"}}
+          {{this.trackMenuElement}}
         >
           {{yield
             (hash
@@ -52,7 +52,7 @@
         {{popper-tooltip this.toggleElement this.popperOptions}}
         {{did-insert @registerChildElement "menu"}}
         {{will-destroy @unregisterChildElement "menu"}}
-        {{create-ref "menuElement"}}
+        {{this.trackMenuElement}}
       >
         {{yield
           (hash
@@ -72,7 +72,7 @@
           {{popper-tooltip this.toggleElement this.popperOptions}}
           {{did-insert @registerChildElement "menu"}}
           {{will-destroy @unregisterChildElement "menu"}}
-          {{create-ref "menuElement"}}
+          {{this.trackMenuElement}}
         >
           {{yield
             (hash

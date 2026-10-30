@@ -10,7 +10,7 @@ import Ember from 'ember';
 import arg from '../utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
 import { getParentView } from '../utils/dom';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 
 const HOVERSTATE_NONE = 'none';
 const HOVERSTATE_IN = 'in';
@@ -350,7 +350,9 @@ export default class ContextualHelp extends Component {
    * @readonly
    * @private
    */
-  @ref('overlayElement') overlayElement;
+  overlayElement;
+
+  trackOverlayElement = trackElement(this, 'overlayElement');
 
   /**
    * This action is called immediately when the tooltip/popover is about to be shown.

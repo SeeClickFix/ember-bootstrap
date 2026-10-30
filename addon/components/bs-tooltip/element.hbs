@@ -9,7 +9,7 @@
     role="tooltip"
     ...attributes
     {{popper-tooltip @popperTarget this.popperOptions}}
-    {{create-ref "popperElement"}}
+    {{this.trackPopperElement}}
   >
     <div class={{this.arrowClass}}></div>
     <div class="tooltip-inner">
@@ -28,7 +28,7 @@
       role="tooltip"
       ...attributes
       {{popper-tooltip @popperTarget this.popperOptions}}
-      {{create-ref "popperElement"}}
+      {{this.trackPopperElement}}
     >
       <div class={{this.arrowClass}}></div>
       <div class="tooltip-inner">

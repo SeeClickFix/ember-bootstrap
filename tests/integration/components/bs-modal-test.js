@@ -295,6 +295,34 @@ module('Integration | Component | bs-modal', function (hooks) {
     assert.notStrictEqual(find('.modal').style.paddingLeft, '', 'padding is adjusted on resize');
   });
 
+  test('it measures against the new modal element after reopening', async function (assert) {
+    // make the body not overflow, so an overflowing modal gets a left padding
+    sinon.stub(document.body, 'clientWidth').get(() => window.innerWidth);
+    this.set('open', true);
+    await render(hbs`
+      <BsModal @open={{this.open}} @fade={{false}}>
+        <svg width="1" height="5000"></svg>
+      </BsModal>
+    `);
+
+    let firstModal = find('.modal');
+    assert.notStrictEqual(firstModal.style.paddingLeft, '', 'padding is adjusted on the first open');
+
+    this.set('open', false);
+    await settled();
+    assert.dom('.modal').doesNotExist('Modal is hidden');
+
+    this.set('open', true);
+    await settled();
+    let secondModal = find('.modal');
+    assert.notStrictEqual(secondModal, firstModal, 'the modal element is replaced');
+    assert.notStrictEqual(secondModal.style.paddingLeft, '', 'padding is adjusted on reopen');
+
+    secondModal.style.paddingLeft = '';
+    await triggerEvent(window, 'resize');
+    assert.notStrictEqual(secondModal.style.paddingLeft, '', 'padding is adjusted on resize after reopen');
+  });
+
   test('it can reopen after closing by clicking the backdrop', async function (assert) {
     this.set('open', false);
     this.set('close', () => this.set('open', false));

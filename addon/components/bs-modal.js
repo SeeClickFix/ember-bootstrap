@@ -10,7 +10,7 @@ import isFastBoot from 'ember-bootstrap/utils/is-fastboot';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import arg from '../utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 
 function nextRunloop() {
   return new Promise((resolve) => next(resolve));
@@ -301,7 +301,9 @@ export default class Modal extends Component {
    * @readonly
    * @private
    */
-  @ref('modalElement') modalElement;
+  @tracked modalElement;
+
+  trackModalElement = trackElement(this, 'modalElement');
 
   /**
    * The DOM element of the backdrop element.
@@ -311,7 +313,9 @@ export default class Modal extends Component {
    * @readonly
    * @private
    */
-  @ref('backdropElement') backdropElement;
+  backdropElement;
+
+  trackBackdropElement = trackElement(this, 'backdropElement');
 
   /**
    * The action to be sent when the modal footer's submit button (if present) is pressed.

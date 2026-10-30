@@ -6,7 +6,7 @@ import { next } from '@ember/runloop';
 import overrideableCP from 'ember-bootstrap/utils/cp/overrideable';
 import { addObserver } from '@ember/object/observers';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 
 /**
   A visible user-defined slide.
@@ -26,7 +26,9 @@ export default class CarouselSlide extends Component.extend(ComponentChild) {
    * @type null | HTMLElement
    * @private
    */
-  @ref('mainNode') _element = null;
+  _element = null;
+
+  trackMainNode = trackElement(this, '_element');
 
   /**
    * Defines slide visibility.

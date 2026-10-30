@@ -464,6 +464,23 @@ module('Integration | Component | bs-tooltip', function (hooks) {
     assertPositioning(assert);
   });
 
+  test('it stays open when its own content is clicked [renderInPlace=true]', async function (assert) {
+    await render(hbs`
+      <div id="target">
+        <BsTooltip @triggerEvents="click" @renderInPlace={{true}} @fade={{false}}>
+          <span id="content">Content</span>
+        </BsTooltip>
+      </div>
+    `);
+
+    await click('#target');
+    assert.dom('.tooltip').exists('tooltip is visible');
+    await click('#content');
+    assert.dom('.tooltip').exists('tooltip is still visible');
+    await click('#target');
+    assert.dom('.tooltip').doesNotExist('tooltip is hidden by clicking the trigger');
+  });
+
   test('it yields close action', async function (assert) {
     let hideAction = sinon.spy();
     this.set('hide', hideAction);

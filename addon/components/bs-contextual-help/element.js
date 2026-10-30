@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import arg from 'ember-bootstrap/utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
 import { getOwnConfig, macroCondition } from '@embroider/macros';
-import { trackedRef } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 
 /**
  Internal (abstract) component for contextual help markup. Should not be used directly.
@@ -95,7 +95,9 @@ export default class ContextualHelpElement extends Component {
 
   offset = [0, 0];
 
-  @trackedRef('popperElement') popperElement;
+  @tracked popperElement;
+
+  trackPopperElement = trackElement(this, 'popperElement');
 
   /**
    * popper.js modifier config
