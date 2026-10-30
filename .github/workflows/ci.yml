@@ -65,7 +65,7 @@ jobs:
           - false
         scenario:
           - ember-lts-4.8
-          #- ember-lts-4.12 # fails due to bug: https://github.com/emberjs/ember.js/issues/20377
+          - ember-lts-4.12
           - ember-lts-5.4
           - ember-lts-5.8
           - embroider-safe

@@ -25,9 +25,6 @@ module.exports = async function () {
             bootstrap: bootstrapVersion,
           },
         },
-        env: {
-          FAIL_ON_DEPRECATION: false,
-        },
       },
       {
         name: 'ember-lts-5.4',
