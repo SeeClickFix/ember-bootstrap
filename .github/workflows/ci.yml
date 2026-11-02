@@ -95,6 +95,9 @@ jobs:
           - scenario: ember-lts-5.8
             browser: Firefox
             bootstrap: 5
+          - scenario: ember-concurrency-v3
+            browser: Chrome
+            bootstrap: 3
           - scenario: node-tests
     steps:
       - name: Checkout code
