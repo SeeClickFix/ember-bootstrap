@@ -56,6 +56,26 @@ module.exports = async function () {
         },
       },
       {
+        name: 'ember-modifier-v3',
+        npm: {
+          devDependencies: {
+            'ember-modifier': '^3.2.7',
+            bootstrap: bootstrapVersion,
+          },
+        },
+      },
+      {
+        // @glimmer/component 2 imports @ember/owner, which needs Ember 4.10+
+        name: 'glimmer-component-v2',
+        npm: {
+          devDependencies: {
+            '@glimmer/component': '^2.0.0',
+            'ember-source': '~4.12.0',
+            bootstrap: bootstrapVersion,
+          },
+        },
+      },
+      {
         name: 'ember-release',
         npm: {
           devDependencies: {

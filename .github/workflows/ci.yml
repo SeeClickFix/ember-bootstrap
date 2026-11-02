@@ -98,6 +98,12 @@ jobs:
           - scenario: ember-concurrency-v3
             browser: Chrome
             bootstrap: 3
+          - scenario: ember-modifier-v3
+            browser: Chrome
+            bootstrap: 3
+          - scenario: glimmer-component-v2
+            browser: Chrome
+            bootstrap: 4
           - scenario: node-tests
     steps:
       - name: Checkout code
