@@ -69,6 +69,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.29.0",
+    "@ember-decorators/component": "^7.0.0",
+    "@ember-decorators/object": "^7.0.0",
     "@ember/render-modifiers": "^4.0.0",
     "@embroider/macros": ">=1.19.7 <1.21.0",
     "@embroider/util": "Gaurav0/embroider-util#v1.13.5-scf.1",
@@ -82,7 +84,6 @@
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-version-checker": "^5.1.2",
     "ember-concurrency": "^3.1.1 || ^4.0.0",
-    "ember-decorators": "^6.1.0",
     "ember-element-helper": "^0.8.7",
     "ember-focus-trap": "^1.0.0",
     "ember-popper-modifier": "^4.1.1",
