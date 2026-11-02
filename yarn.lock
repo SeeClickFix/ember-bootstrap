@@ -4227,7 +4227,7 @@ decompress-response@^3.3.0:
   dependencies:
     mimic-response "^1.0.0"
 
-decorator-transforms@^2.3.0:
+decorator-transforms@^2.0.0, decorator-transforms@^2.3.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/decorator-transforms/-/decorator-transforms-2.4.0.tgz#154f08d81b4e1261582ce005c6c5c52c2e86587c"
   integrity sha512-IB+0RqnJpuS7ndH4dVY5dfWTZsrCzN3avWFdjSiET0uT2U24jKywjpVEK97TflnZkZgiSRfmeqc1WfS+1CI23w==
@@ -4880,22 +4880,6 @@ ember-cli-typescript@^4.0.0, ember-cli-typescript@^4.2.1:
     stagehand "^1.0.0"
     walk-sync "^2.2.0"
 
-ember-cli-typescript@^5.0.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-5.3.0.tgz#c0f726c61e4309aa9ff49b388219c6729ea986cd"
-  integrity sha512-gFA+ZwmsvvFwo2Jz/B9GMduEn+fPoGb69qWGP0Tp3+Tu5xypDtIKVSZ5086I3Cr19cLXD4HkrOR3YQvdUKzAkQ==
-  dependencies:
-    ansi-to-html "^0.6.15"
-    broccoli-stew "^3.0.0"
-    debug "^4.0.0"
-    execa "^4.0.0"
-    fs-extra "^9.0.1"
-    resolve "^1.5.0"
-    rsvp "^4.8.1"
-    semver "^7.3.2"
-    stagehand "^1.0.0"
-    walk-sync "^2.2.0"
-
 ember-cli-version-checker@^2.1.2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-2.2.0.tgz#47771b731fe0962705e27c8199a9e3825709f3b3"
@@ -5027,7 +5011,7 @@ ember-cli@~3.28.6:
     workerpool "^6.1.4"
     yam "^1.0.0"
 
-ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1, ember-compatibility-helpers@^1.2.5:
+ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.2.7.tgz#b4f138bba844f8f38f0b8f4d7e928841cd5e6591"
   integrity sha512-BtkjulweiXo9c3yVWrtexw2dTmBrvavD/xixNC6TKOBdrixUwU+6nuOO9dufDWsMxoid7MvtmDpzc9+mE8PdaA==
@@ -5102,16 +5086,13 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-"ember-modifier@^3.2.0 || ^4.0.0", ember-modifier@^3.2.7, "ember-modifier@^3.2.7 || ^4.0.0":
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
-  integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
+"ember-modifier@^3.2.0 || ^4.0.0", "ember-modifier@^3.2.7 || ^4.0.0", ember-modifier@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-4.3.0.tgz#517cacd446727bc751100ee3572de3bfe71c95fe"
+  integrity sha512-O0rirSLQbGg0VJ/NqoQ4uN1bh2iAekZC/Ykma+FkjCM2ofrO38u+d8n3+AK6uVWeMJmogGX2KL+Is5fofoInJg==
   dependencies:
-    ember-cli-babel "^7.26.6"
-    ember-cli-normalize-entity-name "^1.0.0"
-    ember-cli-string-utils "^1.1.0"
-    ember-cli-typescript "^5.0.0"
-    ember-compatibility-helpers "^1.2.5"
+    "@embroider/addon-shim" "^1.8.7"
+    decorator-transforms "^2.0.0"
 
 ember-page-title@^8.0.0:
   version "8.2.4"
