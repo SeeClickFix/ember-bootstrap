@@ -14,8 +14,6 @@ import defaultValue from 'ember-bootstrap/utils/default-decorator';
  * @public
  */
 export default class NavbarNav extends BsNavComponent {
-  '__ember-bootstrap_subclass' = true;
-
   @defaultValue
   justified = false;
 

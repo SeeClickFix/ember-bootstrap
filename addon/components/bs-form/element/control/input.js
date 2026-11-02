@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import Control from '../control';
 import sizeClass from 'ember-bootstrap/utils/cp/size-class';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
 
@@ -13,7 +12,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @private
  */
 @tagName('')
-@deprecateSubclassing
 export default class FormElementControlInput extends Control {
   /**
    * @property type

@@ -89,27 +89,20 @@ module('Integration | subclassing', function (hooks) {
 
   tests.forEach(({ name, clazz }) => {
     module(name, function () {
-      test('it should not be subclassed', async function (assert) {
-        class MyClass extends clazz {}
-
-        this.owner.register('component:test-component', MyClass);
-
-        await render(hbs`<TestComponent />`);
-
-        assert.deprecationsInclude(
-          `Extending from ember-bootstrap component classes is not supported, and might break anytime. Detected subclassing of <${name}> component.`
-        );
-      });
-
-      test('subclass warning can be silenced', async function (assert) {
+      test('it can be subclassed without deprecations', async function (assert) {
+        let constructed = false;
         class MyClass extends clazz {
-          '__ember-bootstrap_subclass' = true;
+          constructor() {
+            super(...arguments);
+            constructed = true;
+          }
         }
 
         this.owner.register('component:test-component', MyClass);
 
         await render(hbs`<TestComponent />`);
 
+        assert.true(constructed, 'the subclass is instantiated');
         assert.deprecations(0);
       });
     });

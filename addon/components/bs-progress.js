@@ -1,6 +1,5 @@
 import { tagName } from '@ember-decorators/component';
 import Component from '@ember/component';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Component to display a Bootstrap progress bar, see http://getbootstrap.com/components/#progress.
@@ -30,7 +29,7 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   </BsProgress>
   ```
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Progress
   @namespace Components
@@ -38,7 +37,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   @public
 */
 @tagName('')
-@deprecateSubclassing
 export default class Progress extends Component {
   /**
    * @property progressBarComponent

@@ -10,7 +10,6 @@ import { task, timeout } from 'ember-concurrency';
 import RSVP from 'rsvp';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { equal } from '@ember/object/computed';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Ember implementation of Bootstrap's Carousel. Supports all original features but API is partially different:
@@ -55,7 +54,7 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   | Wrap | wrap slides, cycles without stopping at first or last slide. |
   ```
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Carousel
   @namespace Components
@@ -63,7 +62,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   @public
 */
 @tagName('')
-@deprecateSubclassing
 export default class Carousel extends Component.extend(ComponentParent) {
   tabindex = '1';
 

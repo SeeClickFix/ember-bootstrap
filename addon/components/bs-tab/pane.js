@@ -8,7 +8,6 @@ import transitionEnd from 'ember-bootstrap/utils/transition-end';
 import usesTransition from 'ember-bootstrap/utils/cp/uses-transition';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { guidFor } from '@ember/object/internals';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import trackElement from 'ember-bootstrap/utils/track-element';
 
 /**
@@ -22,7 +21,6 @@ import trackElement from 'ember-bootstrap/utils/track-element';
  @public
  */
 @tagName('')
-@deprecateSubclassing
 export default class TabPane extends Component.extend(ComponentChild) {
   /**
    * @property id

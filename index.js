@@ -57,12 +57,6 @@ module.exports = {
 
     let options = Object.assign({}, defaultOptions, app.options['ember-bootstrap']);
 
-    if (options.bootstrapVersion === 3) {
-      this.warn(
-        'Support for Bootstrap 3 has been deprecated and will be removed in ember-bootstrap v5! Consider migrating to Bootstrap v4 or v5!'
-      );
-    }
-
     if (options.bootstrapVersion >= 4 && options.importBootstrapFont) {
       this.warn(
         'Inclusion of the Glyphicon font is only supported for Bootstrap 3. ' +

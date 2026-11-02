@@ -1,7 +1,6 @@
 import { action } from '@ember/object';
 import { tagName } from '@ember-decorators/component';
 import Control from '../control';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
 
@@ -11,7 +10,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @private
  */
 @tagName('')
-@deprecateSubclassing
 export default class FormElementControlSwitch extends Control {
   @action
   handleClick(event) {

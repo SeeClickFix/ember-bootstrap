@@ -5,11 +5,25 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-bootstrap.svg)](http://emberobserver.com/addons/ember-bootstrap)
 [![npm version](https://badge.fury.io/js/ember-bootstrap.svg)](https://badge.fury.io/js/ember-bootstrap)
 
-An [ember-cli](http://www.ember-cli.com) addon for using [Bootstrap](http://getbootstrap.com/) 3 or 4 in Ember applications.
+An [ember-cli](http://www.ember-cli.com) addon for using [Bootstrap](http://getbootstrap.com/) 3, 4 or 5 in Ember applications.
 
 The addon includes the Bootstrap CSS (or Sass, Less) in your project (can be disabled). On top of that, it provides a set of native Ember components (no use of Bootstrap JavaScript!).</p>
 
 *See [www.ember-bootstrap.com](http://www.ember-bootstrap.com/) for full documentation.*
+
+## About this fork
+
+This is SeeClickFix's fork of ember-bootstrap. It is installed from its git tags (for example
+`"ember-bootstrap": "SeeClickFix/ember-bootstrap#v5.0.0"`), not from npm, and its version numbers are
+independent of upstream's npm releases.
+
+This fork keeps supporting two things that upstream deprecated:
+
+* **Bootstrap 3.** Upstream deprecated it in 4.9.0 and removed it in 5.0.0. Here it stays supported
+  and tested, with no deprecation warning.
+* **Subclassing the component classes.** Upstream deprecated extending from ember-bootstrap's
+  components in 4.0.0 (and dropped that deprecation again in 6.2.0). Here subclassing is supported
+  and raises no deprecation.
 
 ## Installation
 

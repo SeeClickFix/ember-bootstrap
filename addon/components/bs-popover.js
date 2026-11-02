@@ -1,6 +1,5 @@
 import ContextualHelp from './bs-contextual-help';
 import arg from '../utils/decorators/arg';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Component that implements Bootstrap [popovers](http://getbootstrap.com/javascript/#popovers).
@@ -62,14 +61,13 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   * `onHide`
   * `onHidden`
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Popover
   @namespace Components
   @extends Components.ContextualHelp
   @public
 */
-@deprecateSubclassing
 export default class Popover extends ContextualHelp {
   /**
    * @property placement

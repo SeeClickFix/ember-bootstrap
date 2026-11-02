@@ -1,7 +1,6 @@
 import { tagName } from '@ember-decorators/component';
 import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
  @class FormElementErrors
@@ -10,7 +9,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @private
  */
 @tagName('')
-@deprecateSubclassing
 export default class FormElementErrors extends Component {
   /**
    * @property show

@@ -4,7 +4,6 @@ import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import typeClass from 'ember-bootstrap/utils/cp/type-class';
 import { macroCondition, getOwnConfig } from '@embroider/macros';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
 
@@ -16,7 +15,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @public
  */
 @tagName('')
-@deprecateSubclassing
 export default class ProgressBar extends Component {
   /**
    * The lower limit of the value range

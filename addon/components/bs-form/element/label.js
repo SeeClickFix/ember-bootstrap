@@ -4,7 +4,6 @@ import { equal } from '@ember/object/computed';
 import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { isBlank } from '@ember/utils';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
 
@@ -14,7 +13,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @private
  */
 @tagName('')
-@deprecateSubclassing
 export default class FormElementLabel extends Component {
   /**
    * @property label

@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 import arg from 'ember-bootstrap/utils/decorators/arg';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import { DEBUG } from '@glimmer/env';
 
 /**
@@ -91,14 +90,13 @@ import { DEBUG } from '@glimmer/env';
   You can `reset` the state represented by these properties and used for button's text by setting `reset` property to
   `true`.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Button
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class Button extends Component {
   /**
    * Default label of the button. Not need if used as a block component
