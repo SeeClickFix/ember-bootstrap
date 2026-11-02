@@ -2,7 +2,7 @@ import { A } from '@ember/array';
 
 export default function ({ beforeEach, afterEach }) {
   let styleSheet = A(Array.prototype.slice.call(document.styleSheets)).find(
-    (sheet) => sheet.href.indexOf('test-support.css') !== -1
+    (sheet) => sheet.href.indexOf('dummy.css') !== -1
   );
   let numberOfInsertedRules;
 
@@ -10,7 +10,7 @@ export default function ({ beforeEach, afterEach }) {
     numberOfInsertedRules = 0;
 
     this.insertCSSRule = function (rule) {
-      styleSheet.insertRule(rule, styleSheet.length);
+      styleSheet.insertRule(rule, styleSheet.cssRules.length);
       numberOfInsertedRules++;
     };
   });
@@ -19,7 +19,7 @@ export default function ({ beforeEach, afterEach }) {
     // since we insert the rules at the end of the stylesheet, we could safely
     // remove the same amount of rules from the end as we have inserted
     for (let i = 1; i <= numberOfInsertedRules; i++) {
-      styleSheet.deleteRule(styleSheet.length);
+      styleSheet.deleteRule(styleSheet.cssRules.length - 1);
     }
   });
 }
