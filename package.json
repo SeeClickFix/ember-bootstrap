@@ -52,6 +52,7 @@
     "testem": "~3.18.0",
     "@embroider/addon-shim": "1.10.2",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4",
+    "@babel/runtime": "^7.29.7",
     "browserslist": "^4.28.7",
     "tmp": "^0.2.7",
     "brace-expansion": "^1.1.21",
