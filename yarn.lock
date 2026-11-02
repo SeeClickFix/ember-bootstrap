@@ -16,7 +16,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.29.7.tgz#6f0237f0f36d2e51c0570a636faed9d2d0efe629"
   integrity sha512-locTkQyKvwIEgBzVrn8693ebc97F2U8ZHjbXwDXJ5Fn2TCpNwTlKcaKLkdHop5c/icOFE7qt7Q9JC5hnKNa6Gg==
 
-"@babel/core@^7.12.0", "@babel/core@^7.13.8", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.29.0", "@babel/core@^7.3.4":
+"@babel/core@^7.12.0", "@babel/core@^7.13.8", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.23.7", "@babel/core@^7.29.0", "@babel/core@^7.3.4":
   version "7.29.7"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.29.7.tgz#80c10b17248082968b57a857b91640971f2070f7"
   integrity sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==
@@ -4462,7 +4462,7 @@ ember-a11y-testing@^4.0.7:
     fs-extra "^10.0.0"
     validate-peer-dependencies "^2.0.0"
 
-ember-auto-import@^1.11.2, ember-auto-import@^2.10.0, ember-auto-import@^2.4.1, ember-auto-import@^2.5.0, ember-auto-import@^2.6.0, ember-auto-import@^2.6.1, ember-auto-import@^2.6.3:
+ember-auto-import@^1.11.2, ember-auto-import@^2.10.0, ember-auto-import@^2.4.1, ember-auto-import@^2.6.0, ember-auto-import@^2.6.1, ember-auto-import@^2.6.3, ember-auto-import@^2.7.2:
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.13.1.tgz#d939af31eb711c75c94b74a33ac2c8e5c57c2686"
   integrity sha512-MjxJK2nfCJmmQI/rju2TrycmAa1AxmTarfvygbcrrgW0s4WeZHtbGXCO2z1lW9wfrShqeTo/o+3Mgk+9xcDTWg==
@@ -4564,7 +4564,7 @@ ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-"ember-cli-babel@^7.26.6 || ^8.3.1", ember-cli-babel@^8.3.2:
+"ember-cli-babel@^7.26.6 || ^8.3.1", ember-cli-babel@^8.2.0, ember-cli-babel@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-8.3.2.tgz#e34944c104a280a3dcc7f1e3c136bdfb483901f7"
   integrity sha512-Thvqx+jwGYhimYbkkL0gwhwMlhghTIR3uQ9R0yNaTjBIttZIfSWJ/2W40kaJlwhnsElXq7zbFjZcff22p6nzCg==
@@ -5086,7 +5086,7 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-"ember-modifier@^3.2.0 || ^4.0.0", "ember-modifier@^3.2.7 || ^4.0.0", ember-modifier@^4.3.0:
+"ember-modifier@^3.2.7 || ^4.0.0", ember-modifier@^4.0.0, ember-modifier@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-4.3.0.tgz#517cacd446727bc751100ee3572de3bfe71c95fe"
   integrity sha512-O0rirSLQbGg0VJ/NqoQ4uN1bh2iAekZC/Ykma+FkjCM2ofrO38u+d8n3+AK6uVWeMJmogGX2KL+Is5fofoInJg==
@@ -5102,16 +5102,17 @@ ember-page-title@^8.0.0:
     "@embroider/addon-shim" "^1.8.7"
     "@simple-dom/document" "^1.4.0"
 
-ember-popper-modifier@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-popper-modifier/-/ember-popper-modifier-3.0.0.tgz#8eabada3e0cc6a8cd96d26c6baff699fedc17090"
-  integrity sha512-pFvVYl7bPMuafLvTgnSrZXEO6oGLt2DxmGM5yGstae+jYotXOmnoqEiL/Q2FIZtUIbOZAo2BGUROe6rkoVumBg==
+ember-popper-modifier@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/ember-popper-modifier/-/ember-popper-modifier-4.1.1.tgz#59921b395dcf9005acbd329fb4275f8918f66cce"
+  integrity sha512-HntWV/ICZZ8qcAnw4HOwEieDekVZiMaG2HvEJj+g8VDGly1EJDItJ1uANZiYpf0vrBFP70VEroI1IhvCD6yx1A==
   dependencies:
+    "@babel/core" "^7.23.7"
     "@popperjs/core" "^2.4.2"
-    ember-auto-import "^2.5.0"
-    ember-cli-babel "^7.26.11"
-    ember-cli-htmlbars "^6.1.1"
-    ember-modifier "^3.2.0 || ^4.0.0"
+    ember-auto-import "^2.7.2"
+    ember-cli-babel "^8.2.0"
+    ember-cli-htmlbars "^6.3.0"
+    ember-modifier "^4.0.0"
 
 ember-qunit@^6.2.0:
   version "6.2.0"
