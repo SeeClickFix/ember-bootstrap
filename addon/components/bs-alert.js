@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { later } from '@ember/runloop';
+import { later, schedule } from '@ember/runloop';
 import usesTransition from 'ember-bootstrap/utils/decorators/uses-transition';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import arg from 'ember-bootstrap/utils/decorators/arg';
@@ -86,15 +86,33 @@ export default class Alert extends Component {
    * @public
    */
   get visible() {
-    return this._visible !== undefined ? this._visible : true;
+    let visible = this.args.visible;
+    if (visible !== this._visibleArg) {
+      // untracked bookkeeping, so the alert can be shown again after being dismissed once `@visible` changes
+      // eslint-disable-next-line ember/no-side-effects
+      this._visibleArg = visible;
+      this._visibleArgChanges++;
+    }
+    if (this._dismissedAt === this._visibleArgChanges) {
+      return false;
+    }
+    return visible !== undefined ? visible : true;
   }
 
   /**
-   * @property _visible
+   * `@visible` as last seen by `visible`, and how often it has changed. These are untracked, as `visible` updates them
+   * while rendering.
+   * @private
+   */
+  _visibleArg = this.args.visible;
+  _visibleArgChanges = 0;
+
+  /**
+   * The value of `_visibleArgChanges` when the alert was dismissed, so the alert stays hidden until `@visible` changes.
    * @private
    */
   @tracked
-  _visible = this.args.visible;
+  _dismissedAt = -1;
 
   /**
    * Set to false to disable the fade out animation when hiding the alert.
@@ -163,7 +181,7 @@ export default class Alert extends Component {
   @action
   dismiss() {
     if (this.args.onDismiss?.() !== false) {
-      this._visible = false;
+      this._dismissedAt = this._visibleArgChanges;
     }
   }
 
@@ -202,7 +220,12 @@ export default class Alert extends Component {
       );
     } else {
       this.hidden = true;
-      this.args.onDismissed?.();
+      // hide() runs while rendering, and onDismissed may set @visible, which that render has already read
+      schedule('afterRender', this, function () {
+        if (!this.isDestroyed) {
+          this.args.onDismissed?.();
+        }
+      });
     }
   }
 
@@ -213,10 +236,5 @@ export default class Alert extends Component {
     } else {
       this.hide();
     }
-  }
-
-  @action
-  updateVisibility() {
-    this._visible = this.args.visible;
   }
 }
