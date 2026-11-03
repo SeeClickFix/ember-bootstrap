@@ -33,6 +33,10 @@ import setupNoDeprecations from '../../helpers/setup-no-deprecations';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import sinon from 'sinon';
 import Ember from 'ember';
+import { dependencySatisfies, macroCondition } from '@embroider/macros';
+
+// see https://github.com/kaliber5/ember-bootstrap/issues/1682
+const testUnlessEmbroider = macroCondition(dependencySatisfies('@embroider/core', '*')) ? skip : test;
 
 const nextRunloop = function () {
   return new Promise((resolve) => {
@@ -241,7 +245,7 @@ module('Integration | Component | bs-form', function (hooks) {
     assert.dom(`.${formFeedbackClass()}`).hasText('There is an error');
   });
 
-  skip('it does not catch errors thrown by onSubmit action', async function (assert) {
+  testUnlessEmbroider('it does not catch errors thrown by onSubmit action', async function (assert) {
     let onErrorStub = sinon.stub();
     let expectedError = new Error();
 
