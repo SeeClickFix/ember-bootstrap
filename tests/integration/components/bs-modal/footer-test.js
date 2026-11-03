@@ -1,3 +1,5 @@
+import { setComponentTemplate } from '@ember/component';
+import templateOnly from '@ember/component/template-only';
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
@@ -62,6 +64,38 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
 
     assert.strictEqual(submitCount, 1, 'onSubmit is called once.');
     assert.true(defaultPrevented, 'Native form submission is prevented.');
+  });
+
+  module('native form submission', function (hooks) {
+    hooks.beforeEach(function () {
+      this.defaultPrevented = undefined;
+      this.listener = (event) => {
+        this.defaultPrevented = event.defaultPrevented;
+        // never let the test runner page navigate
+        event.preventDefault();
+      };
+      window.addEventListener('submit', this.listener);
+    });
+
+    hooks.afterEach(function () {
+      window.removeEventListener('submit', this.listener);
+    });
+
+    test('a custom buttonComponent submits the footer', async function (assert) {
+      let submitCount = 0;
+      this.set('submit', () => submitCount++);
+      this.CustomButton = setComponentTemplate(
+        hbs`<button type="button" class="custom-button" ...attributes>{{yield}}</button>`,
+        templateOnly()
+      );
+      await render(
+        hbs`<BsModal::Footer @closeTitle="close" @submitTitle="submit" @onSubmit={{this.submit}} @buttonComponent={{this.CustomButton}} />`
+      );
+      await click('.modal-footer button:last-child');
+
+      assert.strictEqual(submitCount, 1, 'onSubmit is called once.');
+      assert.true(this.defaultPrevented, 'Native form submission is prevented.');
+    });
   });
 
   test('Footer can have a custom submitButtonType', async function (assert) {
