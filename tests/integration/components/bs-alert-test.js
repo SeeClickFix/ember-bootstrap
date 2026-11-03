@@ -141,6 +141,22 @@ module('Integration | Component | bs-alert', function (hooks) {
     assert.dom('*').hasText('', 'alert has no content');
   });
 
+  test('alert is initially hidden when visible=null', async function (assert) {
+    await render(hbs`<BsAlert @type="success" @fade={{false}} @visible={{null}}>Test</BsAlert>`);
+
+    assert.dom('.alert').doesNotExist('alert has no alert class');
+    assert.dom('*').hasText('', 'alert has no content');
+  });
+
+  test('alert can be hidden by setting visible=null', async function (assert) {
+    this.set('visible', true);
+    await render(hbs`<BsAlert @type="success" @fade={{false}} @visible={{this.visible}}>Test</BsAlert>`);
+    this.set('visible', null);
+    await settled();
+
+    assert.dom('.alert').doesNotExist('alert has no alert class');
+  });
+
   test('alert can be made visible when setting visible=true', async function (assert) {
     this.set('visible', false);
     await render(hbs`<BsAlert @type="success" @visible={{this.visible}} @fade={{false}}>Test</BsAlert>`);

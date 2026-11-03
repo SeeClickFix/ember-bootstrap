@@ -86,7 +86,7 @@ export default class Alert extends Component {
    * @public
    */
   get visible() {
-    return this._visible ?? true;
+    return this._visible !== undefined ? this._visible : true;
   }
 
   /**
