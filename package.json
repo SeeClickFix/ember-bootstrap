@@ -66,7 +66,8 @@
     "ansi-html": "0.0.9",
     "mocha/js-yaml": "^4.3.2",
     "mocha/serialize-javascript": "^7.1.4",
-    "@embroider/macros": "~1.20.7"
+    "@embroider/macros": "~1.20.7",
+    "**/node-notifier/uuid": "^11.1.1"
   },
   "dependencies": {
     "@babel/core": "^7.29.0",
