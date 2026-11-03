@@ -81,6 +81,25 @@ module('Integration | Component | bs-modal/footer', function (hooks) {
       window.removeEventListener('submit', this.listener);
     });
 
+    test('it is not prevented without onSubmit', async function (assert) {
+      await render(hbs`<BsModal::Footer @closeTitle="close" @submitTitle="submit" />`);
+      await click('.modal-footer button:last-child');
+
+      assert.false(this.defaultPrevented, 'Native form submission is not prevented.');
+    });
+
+    test('it is not prevented when the footer has an action attribute', async function (assert) {
+      let submitCount = 0;
+      this.set('submit', () => submitCount++);
+      await render(
+        hbs`<BsModal::Footer @closeTitle="close" @submitTitle="submit" @onSubmit={{this.submit}} action="/export" method="post" />`
+      );
+      await click('.modal-footer button:last-child');
+
+      assert.strictEqual(submitCount, 1, 'onSubmit is called once.');
+      assert.false(this.defaultPrevented, 'Native form submission is not prevented.');
+    });
+
     test('a custom buttonComponent submits the footer', async function (assert) {
       let submitCount = 0;
       this.set('submit', () => submitCount++);

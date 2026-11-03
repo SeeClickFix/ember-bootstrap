@@ -70,8 +70,14 @@ import { action } from '@ember/object';
 export default class ModalFooter extends Component {
   @action
   handleSubmit(event) {
-    // the footer is a <form>, so prevent the browser's native submission (and the page reload that comes with it)
-    event.preventDefault();
-    this.args.onSubmit?.();
+    if (!this.args.onSubmit) {
+      return;
+    }
+    // the footer is a <form>, so prevent the browser's native submission (and the page reload that comes with it),
+    // unless an `action` attribute asks for it
+    if (!event.target.hasAttribute('action')) {
+      event.preventDefault();
+    }
+    this.args.onSubmit();
   }
 }
