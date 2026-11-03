@@ -67,7 +67,8 @@
     "mocha/js-yaml": "^4.3.2",
     "mocha/serialize-javascript": "^7.1.4",
     "@embroider/macros": "~1.20.7",
-    "**/node-notifier/uuid": "^11.1.1"
+    "**/node-notifier/uuid": "^11.1.1",
+    "**/ember-try-config/package-json": "^7.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.29.0",
