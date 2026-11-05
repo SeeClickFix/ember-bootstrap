@@ -5,7 +5,7 @@ import { next } from '@ember/runloop';
 import { getDestinationElement } from 'ember-bootstrap/utils/dom';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 
 /**
  Component for the dropdown menu.
@@ -25,7 +25,9 @@ export default class DropdownMenu extends Component {
    * @type null | HTMLElement
    * @private
    */
-  @ref('menuElement') menuElement = null;
+  menuElement = null;
+
+  trackMenuElement = trackElement(this, 'menuElement');
 
   /**
    * @property ariaRole

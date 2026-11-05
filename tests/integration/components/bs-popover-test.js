@@ -137,6 +137,23 @@ module('Integration | Component | bs-popover', function (hooks) {
     assert.dom('.popover').exists('popover is still visible');
   });
 
+  test('it stays open when its own content is clicked [renderInPlace=true]', async function (assert) {
+    await render(hbs`
+      <div id="target">
+        <BsPopover @triggerEvents="click" @renderInPlace={{true}} @fade={{false}}>
+          <span id="content">Content</span>
+        </BsPopover>
+      </div>
+    `);
+
+    await click('#target');
+    assert.dom('.popover').exists('popover is visible');
+    await click('#content');
+    assert.dom('.popover').exists('popover is still visible');
+    await click('#target');
+    assert.dom('.popover').doesNotExist('popover is hidden by clicking the trigger');
+  });
+
   test('it yields close action', async function (assert) {
     let hideAction = sinon.spy();
     this.set('hide', hideAction);

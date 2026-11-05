@@ -3,7 +3,7 @@ import { isBlank } from '@ember/utils';
 import Component from '@glimmer/component';
 import { next } from '@ember/runloop';
 import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 import { tracked } from '@glimmer/tracking';
 
 /**
@@ -20,7 +20,9 @@ export default class ModalDialog extends Component {
    * @property id
    * @type null | HTMLElement
    */
-  @ref('mainNode') _element = null;
+  _element = null;
+
+  trackMainNode = trackElement(this, '_element');
 
   /**
    * Name of the size class

@@ -8,7 +8,7 @@ import { getOwner } from '@ember/application';
 import FormGroup from 'ember-bootstrap/components/bs-form/group';
 import { getOwnConfig, macroCondition } from '@embroider/macros';
 import { guidFor } from '@ember/object/internals';
-import { ref } from 'ember-ref-bucket';
+import trackElement from 'ember-bootstrap/utils/track-element';
 import ControlInput from './element/control/input';
 import ControlCheckbox from './element/control/checkbox';
 import ControlTextarea from './element/control/textarea';
@@ -207,7 +207,9 @@ export default class FormElement extends FormGroup {
    * @type null | HTMLElement
    * @private
    */
-  @ref('mainNode') _element = null;
+  _element = null;
+
+  trackMainNode = trackElement(this, '_element');
 
   /**
    * Text to display within a `<label>` tag.
