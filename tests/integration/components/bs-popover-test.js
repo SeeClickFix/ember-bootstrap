@@ -12,7 +12,6 @@ import {
 import { setupForPositioning, assertPositioning } from '../../helpers/contextual-help';
 import setupStylesheetSupport from '../../helpers/setup-stylesheet-support';
 import setupNoDeprecations from '../../helpers/setup-no-deprecations';
-import { gte } from 'ember-compatibility-helpers';
 import a11yAudit from 'ember-a11y-testing/test-support/audit';
 import sinon from 'sinon';
 
@@ -217,7 +216,7 @@ module('Integration | Component | bs-popover', function (hooks) {
     assert.dom('.popover').hasClass('wide');
   });
 
-  (gte('3.4.0') ? test : skip)('it passes all HTML attribute', async function (assert) {
+  test('it passes all HTML attribute', async function (assert) {
     await render(
       hbs`<div id="target"><BsPopover @title="Dummy" class="wide" data-test role="foo">test</BsPopover></div>`
     );
