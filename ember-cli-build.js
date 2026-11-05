@@ -18,9 +18,6 @@ module.exports = function (defaults) {
 
   const options = {
     'ember-bootstrap': {},
-    'ember-cli-babel': {
-      includePolyfill: !!process.env.BABELPOLYFILL,
-    },
     autoImport: {
       forbidEval: true,
     },
