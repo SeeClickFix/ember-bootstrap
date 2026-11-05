@@ -1,5 +1,4 @@
 import ContextualHelp from './bs-contextual-help';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Component that implements Bootstrap [tooltips](http://getbootstrap.com/javascript/#tooltips).
@@ -71,14 +70,13 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   * `onHide`
   * `onHidden`
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Tooltip
   @namespace Components
   @extends Components.ContextualHelp
   @public
 */
-@deprecateSubclassing
 export default class Tooltip extends ContextualHelp {
   /**
    * @property elementComponent

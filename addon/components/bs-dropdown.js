@@ -3,7 +3,6 @@ import { action, computed } from '@ember/object';
 import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { assert } from '@ember/debug';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 const SPACE_KEYCODE = 32; // KeyboardEvent.which value for space key
@@ -164,7 +163,7 @@ const SUPPORTED_KEYCODES = [ESCAPE_KEYCODE, ARROW_DOWN_KEYCODE, ARROW_UP_KEYCODE
   version does. This also allows you to set `renderInPlace=false` on the menu component to render it in a wormhole,
   which you might want to do if you experience clipping issues by an outer `overflow: hidden` element.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Dropdown
   @namespace Components
@@ -172,7 +171,6 @@ const SUPPORTED_KEYCODES = [ESCAPE_KEYCODE, ARROW_DOWN_KEYCODE, ARROW_UP_KEYCODE
   @public
 s*/
 @tagName('')
-@deprecateSubclassing
 export default class Dropdown extends Component {
   /**
    * The tag name used for the dropdown element.

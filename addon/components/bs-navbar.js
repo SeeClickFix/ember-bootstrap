@@ -7,7 +7,6 @@ import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { assert } from '@ember/debug';
 import { macroCondition, getOwnConfig } from '@embroider/macros';
 import { isBlank } from '@ember/utils';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Component to generate [Bootstrap navbars](http://getbootstrap.com/components/#navbar).
@@ -96,7 +95,7 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   Bootstrap 4 navbars are fluid by default without the need for an additional container. An
   additional container is added like with Bootstrap 3 if `fluid` is `false`.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Navbar
   @namespace Components
@@ -104,7 +103,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   @public
 */
 @tagName('')
-@deprecateSubclassing
 export default class Navbar extends Component {
   /**
    * Manages the state for the responsive menu between the toggle and the content.

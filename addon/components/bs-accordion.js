@@ -1,6 +1,5 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import { tracked } from '@glimmer/tracking';
 
 /**
@@ -31,14 +30,13 @@ import { tracked } from '@glimmer/tracking';
 
   In the example above the first accordion item utilizes the yielded `change` action to add some custom behaviour.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Accordion
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class Accordion extends Component {
   /**
    * The value of the currently selected accordion item. Set this to change selection programmatically.

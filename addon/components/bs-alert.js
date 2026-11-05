@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { later, schedule } from '@ember/runloop';
 import usesTransition from 'ember-bootstrap/utils/decorators/uses-transition';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import arg from 'ember-bootstrap/utils/decorators/arg';
 
 /**
@@ -36,14 +35,13 @@ import arg from 'ember-bootstrap/utils/decorators/arg';
   The header is rendered using a `<h4>` element by default. You can customize
   that one by setting `@headerTag` argument of `<BsAlert>`.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Alert
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class Alert extends Component {
   /**
    * A dismissible alert will have a close button in the upper right corner, that the user can click to dismiss

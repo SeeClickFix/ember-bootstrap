@@ -2,7 +2,6 @@ import { tagName } from '@ember-decorators/component';
 import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { computed, action } from '@ember/object';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
  Anchor element that triggers the parent dropdown to open.
@@ -16,7 +15,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  @publicø
  */
 @tagName('')
-@deprecateSubclassing
 export default class DropdownToggle extends Component {
   /**
    * @property inNav

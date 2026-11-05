@@ -1,7 +1,6 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { A, isArray } from '@ember/array';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Bootstrap-style button group, that visually groups buttons, and optionally adds radio/checkbox like behaviour.
@@ -54,14 +53,13 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   </ul>
   ```
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class ButtonGroup
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class ButtonGroup extends Component {
   /**
    * @property buttonComponent

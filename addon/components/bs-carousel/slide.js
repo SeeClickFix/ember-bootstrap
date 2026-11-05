@@ -5,7 +5,6 @@ import ComponentChild from 'ember-bootstrap/mixins/component-child';
 import { next } from '@ember/runloop';
 import overrideableCP from 'ember-bootstrap/utils/cp/overrideable';
 import { addObserver } from '@ember/object/observers';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import trackElement from 'ember-bootstrap/utils/track-element';
 
 /**
@@ -19,7 +18,6 @@ import trackElement from 'ember-bootstrap/utils/track-element';
   @public
  */
 @tagName('')
-@deprecateSubclassing
 export default class CarouselSlide extends Component.extend(ComponentChild) {
   /**
    * @property _element

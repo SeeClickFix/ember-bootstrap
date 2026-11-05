@@ -2,7 +2,6 @@ import { action } from '@ember/object';
 import { tagName } from '@ember-decorators/component';
 import Component from '@ember/component';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
  * Component to implement the responsive menu toggle behavior in a [Components.Navbar](Components.Navbar.html)
@@ -19,7 +18,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
  * @public
  */
 @tagName('')
-@deprecateSubclassing
 export default class NavbarToggle extends Component {
   @defaultValue
   collapsed = true;

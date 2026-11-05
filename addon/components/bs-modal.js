@@ -7,7 +7,6 @@ import transitionEnd from 'ember-bootstrap/utils/transition-end';
 import { getDestinationElement } from 'ember-bootstrap/utils/dom';
 import usesTransition from 'ember-bootstrap/utils/decorators/uses-transition';
 import isFastBoot from 'ember-bootstrap/utils/is-fastboot';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import arg from '../utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
 import trackElement from 'ember-bootstrap/utils/track-element';
@@ -55,14 +54,13 @@ function afterRender() {
 
   See the documentation of the [bs-modal-simple](Components.ModalSimple.html) component for further examples.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Modal
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class Modal extends Component {
   @service('-document')
   document;

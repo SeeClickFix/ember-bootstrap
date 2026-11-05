@@ -9,7 +9,6 @@ import RSVP from 'rsvp';
 import defaultValue from 'ember-bootstrap/utils/default-decorator';
 import { macroCondition, getOwnConfig } from '@embroider/macros';
 import { DEBUG } from '@glimmer/env';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 
 /**
   Render a form with the appropriate Bootstrap layout class (see `formLayout`).
@@ -120,7 +119,7 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   The submission state is reset as soon as any value of a form element changes. Additionally it can be reset programatically by
   calling the yielded `resetSubmissionState` function.
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Form
   @namespace Components
@@ -128,7 +127,6 @@ import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
   @public
 */
 @tagName('')
-@deprecateSubclassing
 export default class Form extends Component {
   /**
    * Bootstrap form class name (computed)

@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import typeClass from 'ember-bootstrap/utils/cp/type-class';
 import { getOwnConfig, macroCondition } from '@embroider/macros';
 import { guidFor } from '@ember/object/internals';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import arg from '../../utils/decorators/arg';
 
 /**
@@ -15,7 +14,6 @@ import arg from '../../utils/decorators/arg';
  @extends Ember.Component
  @public
  */
-@deprecateSubclassing
 export default class AccordionItem extends Component {
   /**
    * The title of the accordion item, displayed as a .panel-title element

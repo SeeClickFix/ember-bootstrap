@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import { isNone } from '@ember/utils';
 import { next } from '@ember/runloop';
 import transitionEnd from 'ember-bootstrap/utils/transition-end';
-import deprecateSubclassing from 'ember-bootstrap/utils/deprecate-subclassing';
 import trackElement from 'ember-bootstrap/utils/track-element';
 import arg from '../utils/decorators/arg';
 import { tracked } from '@glimmer/tracking';
@@ -22,14 +21,13 @@ import { tracked } from '@glimmer/tracking';
   </BsCollapse>
   ```
 
-  *Note that only invoking the component in a template as shown above is considered part of its public API. Extending from it (subclassing) is generally not supported, and may break at any time.*
+  *Besides invoking the component in a template as shown above, extending from it (subclassing) is supported as well.*
 
   @class Collapse
   @namespace Components
   @extends Glimmer.Component
   @public
 */
-@deprecateSubclassing
 export default class Collapse extends Component {
   /**
    * @property _element
