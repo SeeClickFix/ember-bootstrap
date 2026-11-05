@@ -65,7 +65,7 @@ jobs:
           - false
         scenario:
           - ember-lts-4.8
-          #- ember-lts-4.12 # fails due to bug: https://github.com/emberjs/ember.js/issues/20377
+          - ember-lts-4.12
           - ember-lts-5.4
           - ember-lts-5.8
           - embroider-safe
@@ -95,6 +95,15 @@ jobs:
           - scenario: ember-lts-5.8
             browser: Firefox
             bootstrap: 5
+          - scenario: ember-concurrency-v3
+            browser: Chrome
+            bootstrap: 3
+          - scenario: ember-modifier-v3
+            browser: Chrome
+            bootstrap: 3
+          - scenario: glimmer-component-v2
+            browser: Chrome
+            bootstrap: 4
           - scenario: node-tests
     steps:
       - name: Checkout code

@@ -25,9 +25,6 @@ module.exports = async function () {
             bootstrap: bootstrapVersion,
           },
         },
-        env: {
-          FAIL_ON_DEPRECATION: false,
-        },
       },
       {
         name: 'ember-lts-5.4',
@@ -43,6 +40,37 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~5.8.0',
+            bootstrap: bootstrapVersion,
+          },
+        },
+      },
+      {
+        name: 'ember-concurrency-v3',
+        npm: {
+          dependencies: {
+            'ember-concurrency': '^3.1.1',
+          },
+          devDependencies: {
+            bootstrap: bootstrapVersion,
+          },
+        },
+      },
+      {
+        name: 'ember-modifier-v3',
+        npm: {
+          devDependencies: {
+            'ember-modifier': '^3.2.7',
+            bootstrap: bootstrapVersion,
+          },
+        },
+      },
+      {
+        // @glimmer/component 2 imports @ember/owner, which needs Ember 4.10+
+        name: 'glimmer-component-v2',
+        npm: {
+          devDependencies: {
+            '@glimmer/component': '^2.0.0',
+            'ember-source': '~4.12.0',
             bootstrap: bootstrapVersion,
           },
         },
