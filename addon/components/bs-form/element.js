@@ -640,8 +640,8 @@ export default class FormElement extends FormGroup {
       return this.hasErrors || this.hasCustomError
         ? 'error'
         : this.hasWarnings || this.hasCustomWarning
-        ? 'warning'
-        : 'success';
+          ? 'warning'
+          : 'success';
     } else {
       /* If there are custom errors or warnings these should always be shown */
       return this.hasCustomError ? 'error' : 'warning';
